@@ -53,7 +53,7 @@ app.add_middleware(
 # ── Routers ───────────────────────────────────────────────────────────────────
 from routers import health, predict, ranking, chat  # noqa: E402
 
-app.include_router(health.router,   prefix="/api/v1")
-app.include_router(predict.router,  prefix="/api/v1")
-app.include_router(ranking.router,  prefix="/api/v1")
+app.include_router(health.router,   prefix="/ml/api/v1")
+app.include_router(predict.router,  prefix="/ml/api/v1")
+app.include_router(ranking.router,  prefix="/ml/api/v1")
 app.include_router(chat.router,     prefix="/api/v1")
