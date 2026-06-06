@@ -44,13 +44,13 @@ docker compose up -d --build
 docker compose logs -f
 
 # 6. Test
-curl http://localhost:8000/api/v1/health
+curl http://localhost:8002/api/v1/health
 ```
 
 ## Test a prediction
 
 ```bash
-curl -X POST http://localhost:8000/api/v1/predict \
+curl -X POST http://localhost:8002/api/v1/predict \
   -H "Content-Type: application/json" \
   -d '{
     "location": "baron",
@@ -75,7 +75,7 @@ curl -X POST http://localhost:8000/api/v1/predict \
 Set in your Next.js `.env.local`:
 
 ```
-NEXT_PUBLIC_API_URL=http://your-vps-ip:8000
+NEXT_PUBLIC_API_URL=http://your-vps-ip:8002
 ```
 
 ## Notes

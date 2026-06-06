@@ -31,7 +31,7 @@ ENV ENV=production
 # Comma-separated allowed origins, e.g. "https://dashboard.mahi.id,https://api.mahi.id"
 ENV CORS_ORIGINS=*
 
-EXPOSE 8000
+EXPOSE 8002
 
 # 2 workers is safe for inference; increase if your VPS has more cores
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002", "--workers", "2"]
