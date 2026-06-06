@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  ml-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mahi-ml-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # ── Artifact files (read-only) ──────────────────────────────────────────
+      # model_registry.json and preprocessing_recipe.json sit next to this file
+      - ./model_registry.json:/app/model_registry.json:ro
+      - ./preprocessing_recipe.json:/app/preprocessing_recipe.json:ro
+      # All 5 .joblib files go in ./models/ on the host
+      - ./models:/app/models:ro
+    environment:
+      - ENV=production
+      - ARTIFACT_DIR=/app
+      # Tighten this to your frontend domain in production:
+      # - CORS_ORIGINS=https://dashboard.mahi.id
+      - CORS_ORIGINS=*
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s

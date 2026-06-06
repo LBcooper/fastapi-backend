@@ -1,0 +1,39 @@
+{
+  "target": "WS10M",
+  "forecast_horizon_hours": 1,
+  "local_tz_offset_hours": 7,
+  "sentinel": -999.0,
+  "lags": [1, 6, 24],
+  "rolling_mean_windows": [3, 24],
+  "rolling_std_windows": [3],
+  "rolling_source": "ws.shift(1)  # anti-leakage, hanya pakai data <= t-1",
+  "cyclical": {
+    "hour":  { "period": 24, "subtract_one": false },
+    "month": { "period": 12, "subtract_one": true  }
+  },
+  "use_month_cyclical": true,
+  "feature_superset": [
+    "WS10M_lag1", "WS10M_lag6", "WS10M_lag24",
+    "WS10M_roll3", "WS10M_roll24", "WS10M_std3",
+    "target_hour_sin", "target_hour_cos",
+    "target_month_sin", "target_month_cos"
+  ],
+  "scenario_feature_sets": {
+    "S0": [],
+    "S1": ["WS10M_lag1"],
+    "S2": ["WS10M_lag1", "WS10M_lag6"],
+    "S3": ["WS10M_lag1", "WS10M_lag6", "WS10M_lag24"],
+    "S4": ["WS10M_lag1", "WS10M_lag6", "WS10M_lag24", "WS10M_roll3"],
+    "S5": ["WS10M_lag1", "WS10M_lag6", "WS10M_lag24", "WS10M_roll3", "WS10M_roll24"],
+    "S6": ["WS10M_lag1", "WS10M_lag6", "WS10M_lag24", "WS10M_roll3", "WS10M_roll24", "WS10M_std3"],
+    "S7": [
+      "WS10M_lag1", "WS10M_lag6", "WS10M_lag24",
+      "WS10M_roll3", "WS10M_roll24", "WS10M_std3",
+      "target_hour_sin", "target_hour_cos",
+      "target_month_sin", "target_month_cos"
+    ]
+  },
+  "s0_dummy_col": "__const_dummy__",
+  "cut_in_ms": 3.0,
+  "min_periods_strict": true
+}

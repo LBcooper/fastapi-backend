@@ -1,0 +1,94 @@
+{
+  "created_at": "2026-05-30T09:58:17.958143+00:00",
+  "horizon_hours": 1,
+  "locations": {
+    "baron": {
+      "name": "Baron",
+      "scenario": "S7",
+      "model_file": "models/model_baron.joblib",
+      "feature_order": [
+        "WS10M_lag1", "WS10M_lag6", "WS10M_lag24",
+        "WS10M_roll3", "WS10M_roll24", "WS10M_std3",
+        "target_hour_sin", "target_hour_cos",
+        "target_month_sin", "target_month_cos"
+      ],
+      "metrics": {
+        "mae":  0.13075651017517392,
+        "rmse": 0.18320462397134354,
+        "mape": 4.470697404365424,
+        "r2":   0.9814143393818691
+      },
+      "status": "kurang_layak"
+    },
+    "pandeglang": {
+      "name": "Pandeglang",
+      "scenario": "S4",
+      "model_file": "models/model_pandeglang.joblib",
+      "feature_order": [
+        "WS10M_lag1", "WS10M_lag6", "WS10M_lag24", "WS10M_roll3"
+      ],
+      "metrics": {
+        "mae":  0.1418189147977513,
+        "rmse": 0.19514009907356006,
+        "mape": 3.589442545340591,
+        "r2":   0.990619758406969
+      },
+      "status": "sangat_layak"
+    },
+    "bawean": {
+      "name": "Bawean",
+      "scenario": "S4",
+      "model_file": "models/model_bawean.joblib",
+      "feature_order": [
+        "WS10M_lag1", "WS10M_lag6", "WS10M_lag24", "WS10M_roll3"
+      ],
+      "metrics": {
+        "mae":  0.12122727588186853,
+        "rmse": 0.17010258293672692,
+        "mape": 3.941592182072487,
+        "r2":   0.9926551015655145
+      },
+      "status": "layak"
+    },
+    "situbondo": {
+      "name": "Situbondo",
+      "scenario": "S7",
+      "model_file": "models/model_situbondo.joblib",
+      "feature_order": [
+        "WS10M_lag1", "WS10M_lag6", "WS10M_lag24",
+        "WS10M_roll3", "WS10M_roll24", "WS10M_std3",
+        "target_hour_sin", "target_hour_cos",
+        "target_month_sin", "target_month_cos"
+      ],
+      "metrics": {
+        "mae":  0.11133722284865918,
+        "rmse": 0.15500518935968355,
+        "mape": 5.441173339649491,
+        "r2":   0.9721593761244784
+      },
+      "status": "tidak_layak"
+    },
+    "sukabumi": {
+      "name": "Sukabumi",
+      "scenario": "S7",
+      "model_file": "models/model_sukabumi.joblib",
+      "feature_order": [
+        "WS10M_lag1", "WS10M_lag6", "WS10M_lag24",
+        "WS10M_roll3", "WS10M_roll24", "WS10M_std3",
+        "target_hour_sin", "target_hour_cos",
+        "target_month_sin", "target_month_cos"
+      ],
+      "metrics": {
+        "mae":  0.14884625902413534,
+        "rmse": 0.20843846846366706,
+        "mape": 4.704795206612243,
+        "r2":   0.9807736703277029
+      },
+      "status": "kurang_layak"
+    }
+  },
+  "library_versions": {
+    "scikit_learn": "1.6.1",
+    "numpy": "2.0.2"
+  }
+}
